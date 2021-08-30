@@ -1,4 +1,4 @@
-# minimal flask app
+# minimal viable flask cookiecutter
 
 This project is a minimalistic flask template that can be used as a base to develop simple APIs on the Flask Framework, with swagger documentation integrated.
 
