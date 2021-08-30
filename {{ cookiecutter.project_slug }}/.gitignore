@@ -1,0 +1,6 @@
+.ropeproject/
+.env
+*.pyc
+__pycache__
+.coverage
+tmp/

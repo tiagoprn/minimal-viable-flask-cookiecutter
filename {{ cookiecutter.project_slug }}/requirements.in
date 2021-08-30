@@ -1,0 +1,17 @@
+# production
+flask
+flasgger  # to provide swagger documentation
+gunicorn
+python-decouple
+python-json-logger
+
+# development
+ipdb
+coverage
+pylint
+pylint-flask
+black
+isort[colors]
+pytest
+pytest-cov
+pytest-sugar
