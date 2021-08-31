@@ -55,11 +55,11 @@ cd ~/projects/
 
 - Run the cookiecutter from the local copy:
 
-`$ cookiecutter ~/cookiecutters/minimal-viable-flask-cookiecutter
+`$ cookiecutter ~/cookiecutters/minimal-viable-flask-cookiecutter`
 
 ... or directly from github (recommended):
 
-`$ cookiecutter gh:tiagoprn/minimal-viable-flask-cookiecutter
+`$ cookiecutter gh:tiagoprn/minimal-viable-flask-cookiecutter`
 
 It will ask some questions with sane defaults, and then will generate a folder with the value you
 indicated for `project_slug`. Congratulations, this is your new minimal flask project! :)
@@ -67,6 +67,22 @@ indicated for `project_slug`. Congratulations, this is your new minimal flask pr
 - Enter the project directory:
 
 `$ cd ~/projects/your-project_slug`
+
+## OPTION 1 - BUILD AND RUN FROM DOCKER/PODMMAN
+
+```
+$ make docker-build-local-app-container && make docker-run-local-app-container
+
+or...
+
+$ make podman-build-local-app-container && make podman-run-local-app-container
+```
+
+Then, check the api documentation:
+
+`$ make api-docs`
+
+## OPTION 2 - INSTALL LOCALLY ON A VIRTUALENV AND RUN FROM THERE
 
 - Create a virtualenv to the project. If you're using pyenv:
 
@@ -109,4 +125,7 @@ $ make test
 
 `$ make runserver`
 
+Then, check the api documentation:
+
+`$ make api-docs`
 
