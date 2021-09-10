@@ -57,26 +57,6 @@ style-check:  ## Run isort and black check code style
 	@echo 'black check...'
 	@black -S -t py37 -l 79 --check $(PROJECT_NAME)/. --exclude '/(\.git|\.venv|env|build|dist)/'
 
-lint:  ## Run the linter to enforce our coding practices
-	@printf '\n --- \n >>> Running linter...<<<\n'
-	@pylint --rcfile=.pylintrc $(PROJECT_NAME)/*
-	@printf '\n FINISHED! \n --- \n'
-
-test: clean  ## Run the test suite
-	@cd $(PROJECT_NAME) && py.test -s -vvv
-
-coverage: clean  ## Run the test coverage report
-	@py.test --cov-config .coveragerc --cov $(PROJECT_NAME) $(PROJECT_NAME) --cov-report term-missing
-
-local-healthcheck-readiness:  ## Run curl to make sure the app/worker is ready
-	@curl http://localhost:5000/health-check/readiness
-
-local-healthcheck-liveness:  ## Run curl to make sure the app/worker is live
-	@curl http://localhost:5000/health-check/liveness
-
-api-docs:  ## Show api docs (must be run on a desktop linux machine, with the app running locally)
-	@xdg-open http://localhost:5000/apidocs
-
 docker-build-local-app: clean  ## Build local docker image (app)
 	@./scripts/build-docker-image.sh $(PROJECT_NAME)
 
@@ -100,3 +80,25 @@ podman-run-local-app-container: clean  ## Run the app podman image locally
 	@echo '---'
 	@echo 'Below is the CONTAINER_ID:'
 	@podman run --rm -d -p 5000:5000 --name {{ cookiecutter.project_slug }} --network bridge ${IMAGE_NAME}
+
+lint:  ## Run the linter to enforce our coding practices
+	@printf '\n --- \n >>> Running linter...<<<\n'
+	@pylint --rcfile=.pylintrc $(PROJECT_NAME)/*
+	@printf '\n FINISHED! \n --- \n'
+
+test: clean  ## Run the test suite
+	@cd $(PROJECT_NAME) && py.test -s -vvv
+
+coverage: clean  ## Run the test coverage report
+	@py.test --cov-config .coveragerc --cov $(PROJECT_NAME) $(PROJECT_NAME) --cov-report term-missing
+
+local-healthcheck-readiness:  ## Run curl to make sure the app/worker is ready
+	@curl http://localhost:5000/health-check/readiness
+
+local-healthcheck-liveness:  ## Run curl to make sure the app/worker is live
+	@curl http://localhost:5000/health-check/liveness
+
+api-docs:  ## Show api docs (must be run on a desktop linux machine, with the app running locally)
+	@xdg-open http://localhost:5000/apidocs
+
+

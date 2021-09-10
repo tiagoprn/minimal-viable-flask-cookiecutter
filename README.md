@@ -4,9 +4,7 @@ This project is a minimalistic flask template that can be used as a base to deve
 
 ## You already have a cookiecutter pretty similar. So, Why this project?
 
-It was derived from [a development branch of my old cookiecutter](https://github.com/tiagoprn/minimal_flask_app_cookiecutter/tree/refactored-extensions), which was being modernized to current packages' versions, and having celery and db support being refactored to the modular factory/blueprints/extensions architecture recommended on Flask's official site. The celery and db support has been removed from this project to keep the footprint really minimal, to serve as a less bloated starting point.
-
-This project will on a future time frame also feed [its' original cookiecutter](https://github.com/tiagoprn/minimal_flask_app_cookiecutter) to automate this setup, providing optional celery and db support.
+It was derived from `[a version of my other cookiecutter ](https://github.com/tiagoprn/celery-db-flask-cookiecutter), that has sqlalchemy and celery support and uses the modular factory/blueprints/extensions architecture recommended on Flask's official site. The celery and db support has been removed from this project to keep the footprint really minimal, to serve as a less bloated starting point.
 
 ## Features
 

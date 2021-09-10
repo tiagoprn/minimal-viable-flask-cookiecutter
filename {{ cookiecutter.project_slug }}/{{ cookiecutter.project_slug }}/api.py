@@ -7,7 +7,6 @@ from flask import Blueprint, jsonify
 from {{ cookiecutter.project_slug }}.exceptions import APIError
 from {{ cookiecutter.project_slug }}.settings import VERSION
 
-# from {{ cookiecutter.project_slug }}.tasks import compute, generate_random_string
 
 blueprint = Blueprint('api', __name__)
 
